@@ -2,7 +2,9 @@ import React from 'react'
 import './loader.css';
 const Loader = () => {
   return (
-    <div className="custom-loader"></div>
+    <div className='w-full h-full grid place-items-center'>
+      <div className="custom-loader"></div>
+    </div>
   )
 }
 
