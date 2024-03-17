@@ -5,9 +5,9 @@ import UserList from "../UserList/UserList";
 
 export default function MainContainer() {
   return (
-    <Box display={'flex'} justifyContent={'center'} sx={{ width: "100%", mt: "3rem" }}>
-      <Grid container alignItems={'start'} justifyContent={'space-around'} rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-        <Grid xs={0} md={6}>
+    <Box  sx={{ width: "100%", mt: "3rem" }}>
+      <Grid container alignItems={'start'} justifyContent={'space-around'} rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 9 }}>
+        <Grid>
           <UserList />
         </Grid>
         <Grid
