@@ -1,12 +1,14 @@
-import React from 'react'
-import PostCard from './PostCard'
+import React from "react";
+import NavBar from "./NavBar";
+import MainContainer from "./MainContainer/MainContainer";
 
 const SocialApp = () => {
   return (
     <div>
-        <PostCard />
+      <NavBar />
+      <MainContainer />
     </div>
-  )
-}
+  );
+};
 
-export default SocialApp
+export default SocialApp;
