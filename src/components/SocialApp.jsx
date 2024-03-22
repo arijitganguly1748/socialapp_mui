@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import NavBar from "./NavBar";
 import MainContainer from "./MainContainer/MainContainer";
 import Input from "./Input/Input";
 import PostCardcontext from "../providers/PostsProvider";
@@ -24,7 +23,6 @@ const SocialApp = () => {
   return (
     <div>
       <PostCardcontext.Provider value={{ posts, setPosts }}>
-        <NavBar />
         <Input />
         <MainContainer />
       </PostCardcontext.Provider>

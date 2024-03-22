@@ -6,7 +6,7 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Loader from "../Loader/Loader";
+import { Link } from "react-router-dom";
 
 export default function UserList() {
   const [users, setUsers] = useState([]);
@@ -29,29 +29,29 @@ export default function UserList() {
       dense
       sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
     >
-      {users.length == 0 ? (
-        "Loading..."
-      ) : (
-        users.map((user) => {
-          const labelId = `checkbox-list-secondary-label-${user?.id}`;
-          return (
-            <ListItem key={user?.id} disablePadding>
-              <ListItemButton>
-                <ListItemAvatar>
-                  <Avatar
-                    alt={`Avatar n°${user?.firstName}`}
-                    src={user?.picture}
-                  />
-                </ListItemAvatar>
-                <ListItemText
-                  id={labelId}
-                  primary={user?.firstName + " " + user?.lastName}
-                />
-              </ListItemButton>
-            </ListItem>
-          );
-        })
-      )}
+      {users.length == 0
+        ? "Loading..."
+        : users.map((user) => {
+            const labelId = `checkbox-list-secondary-label-${user?.id}`;
+            return (
+              <ListItem key={user?.id} disablePadding>
+                <Link to={"/user/123"}>
+                  <ListItemButton>
+                    <ListItemAvatar>
+                      <Avatar
+                        alt={`Avatar n°${user?.firstName}`}
+                        src={user?.picture}
+                      />
+                    </ListItemAvatar>
+                    <ListItemText
+                      id={labelId}
+                      primary={user?.firstName + " " + user?.lastName}
+                    />
+                  </ListItemButton>
+                </Link>
+              </ListItem>
+            );
+          })}
     </List>
   );
 }

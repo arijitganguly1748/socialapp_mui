@@ -1,12 +1,12 @@
 import './App.css'
-import { Button } from '@mui/material'
-import NavBar from './components/NavBar'
-import SocialApp from './components/SocialApp'
+import CustomRoutes from './routes/CustomRoutes'
+import NavBar from './components/NavBar';
 function App() {
 
   return (
     <>
-      <SocialApp />
+      <NavBar />
+      <CustomRoutes />
     </>
   )
 }
