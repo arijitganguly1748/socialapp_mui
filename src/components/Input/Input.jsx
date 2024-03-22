@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import LoadingButton from "@mui/lab/LoadingButton";
+import PostCardcontext from "../../providers/PostsProvider";
 import axios from "axios";
 
 const Input = () => {
   const [postText, setPostText] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [loading, setLoading] = useState(false);
+  const { posts, setPosts } = useContext(PostCardcontext);
 
   const createPost = async () => {
     try {
@@ -27,6 +29,7 @@ const Input = () => {
         }
       );
       setLoading(false);
+      setPosts([response.data, ...posts]);
       setPostText("");
       setImageUrl("");
     } catch (error) {}

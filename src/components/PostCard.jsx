@@ -1,3 +1,4 @@
+import React from "react";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
@@ -11,7 +12,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { useState } from "react";
 
-export default function PostCard({ firstName, lastName, image, content }) {
+const PostCard = ({ firstName, lastName, image, content }) => {
   const [isLiked, setIsLiked] = useState(false);
   return (
     <Card sx={{ maxWidth: 356, mb: "3rem" }}>
@@ -38,9 +39,12 @@ export default function PostCard({ firstName, lastName, image, content }) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites" onClick={() => setIsLiked(!isLiked)}>
+        <IconButton
+          aria-label="add to favorites"
+          onClick={() => setIsLiked(!isLiked)}
+        >
           {isLiked ? (
-            <FavoriteIcon sx={{color: red[500]}} />
+            <FavoriteIcon sx={{ color: red[500] }} />
           ) : (
             <FavoriteBorderIcon />
           )}
@@ -48,4 +52,6 @@ export default function PostCard({ firstName, lastName, image, content }) {
       </CardActions>
     </Card>
   );
-}
+};
+
+export default React.memo(PostCard);
