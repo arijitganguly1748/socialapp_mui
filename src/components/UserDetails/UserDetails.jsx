@@ -1,31 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import axios from "axios";
+import React from "react";
 import Loader from "../Loader/Loader";
 import UserProfile from "./UserProfile";
+import useFetchUserProfile from "../../hooks/useFetchUserProfile";
 
 const UserDetails = () => {
-  const { userId } = useParams();
-  const [user, setUser] = useState({});
-  const [loading, setLoading] = useState(false);
-
-  const fetchUser = async () => {
-    try {
-      setLoading(true);
-      const response = await axios.get(
-        `https://dummyapi.io/data/v1/user/${userId}`,
-        {
-          headers: { "app-id": import.meta.env.VITE_APP_ID },
-        }
-      );
-      setLoading(false);
-      setUser({ ...response?.data });
-    } catch (error) {}
-  };
-
-  useEffect(() => {
-    fetchUser();
-  }, []);
+  const [user, loading] = useFetchUserProfile();
   return <>{!loading ? <UserProfile user={user} /> : <Loader />}</>;
 };
 
