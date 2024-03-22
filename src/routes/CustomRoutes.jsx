@@ -6,7 +6,7 @@ const CustomRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<SocialApp />} />
-      <Route path="/user/:id" element={<UserDetails />} />
+      <Route path="/user/:userId" element={<UserDetails />} />
     </Routes>
   );
 };
