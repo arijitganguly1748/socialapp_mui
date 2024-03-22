@@ -6,7 +6,7 @@ import UserList from "../UserList/UserList";
 export default function MainContainer() {
   return (
     <Box  sx={{ width: "100%", mt: "3rem" }}>
-      <Grid container alignItems={'start'} justifyContent={'space-around'} rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 9 }}>
+      <Grid container alignItems={'start'} justifyContent={'space-around'} rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 0 }}>
         <Grid>
           <UserList />
         </Grid>
